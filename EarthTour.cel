@@ -1,0 +1,458 @@
+{
+#
+#------------------------------------------------------------------------
+# EarthTour.cel V1.01: Touring Earth.
+#
+# Original script V1.01 by Bob Hegwood on 20 Jul 2004.
+#------------------------------------------------------------------------
+#
+renderflags {clear "orbits|constellations|comettails|boundaries"}
+renderflags {clear "pointstars|galaxies|markers"}
+renderflags {set "cloudmaps|eclipseshadows|atmospheres|nightmaps"}
+labels {clear "planets|moons|spacecraft|asteroids|constellations|stars|galaxies"}
+#
+#------------------------------------------------------------------------
+# Set up lighting, the view and the date for this tour. (800x600 display)
+# Celestia default FOV = 25. View Earth on June 6, 2004.
+#------------------------------------------------------------------------
+#
+set {name "AmbientLightLevel" value 0.50}
+set {name "FOV" value 35.0}
+time {jd 2453163.0416667}
+#
+#------------------------------------------------------------------------
+# Select Earth as our destination, approach and give general explanation.
+#------------------------------------------------------------------------
+#
+select {object "Sol/Earth"}
+center {time 5.0}
+wait {duration 5.0}
+follow {}
+goto {time 8.0 distance 5.0}
+wait {duration 8.0}
+print {text "Welcome to Planet Earth!" row -4 column 1 duration 10.0}
+gotolonglat {time 8.0 distance 5.0 longitude -25.0 latitude -10.0}
+wait {duration 10.0}
+timerate {rate 300.0}
+wait {duration 4.0}
+print {text "You may know a bit about THIS planet already..."row -4 column 1 duration 8.0}
+wait {duration 10.0}
+print {text "But you may be surprised to know that our Home Planet\nis much like many of the other bodies in our solar system. "row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "The Earth itself features a wide\nvariety of violent impact craters." row -4 column 1 duration 8.0}
+wait {duration 10.0}
+print {text "The surface of the planet is also always\nin motion, and it is constantly changing." row -4 column 1 duration 8.0}
+wait {duration 10.0}
+print {text "Let's peer beneath the clouds\nand take a quick look around." row -4 column 1 duration 5.0}
+wait {duration 7.0}
+timerate {rate 1.0}
+synchronous {}
+#
+#------------------------------------------------------------------------
+# Let's view some of the Earth's impact craters.
+#------------------------------------------------------------------------
+#
+gotolonglat {time 5.0 distance 5.0 longitude -89.5 latitude 21.3333}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 1.5 longitude -89.5 latitude 21.3333}
+wait {duration 5.0}
+renderflags {clear "cloudmaps"}
+wait {duration 2.0}
+print {text "Here's the location of one violent impact..." row -4 column 1 duration 6.0}
+wait {duration 8.0}
+unmark {object "Sol/Earth"}
+renderflags {set "markers"}
+mark {object "Sol/Earth/Chicxulub Crater" size 15 color [1 1 1] symbol "x"}
+print {text "This is Chicxulub." row -4 column 1 duration 5.0}
+wait {duration 5.0}
+unmark {object "Sol/Earth/Chicxulub Crater"}
+wait {duration 2.0}
+print {text "About 65 million years ago, a 10-kilometer wide asteroid impacted\nhere, and the results killed approximately 70% of the life on Earth!" row -4 column 1 duration 12.0}
+wait {duration 14.0}
+print {text "The crater isn't really visible though. It's buried\nunder one kilometer of sediment and sea water." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "Speculation has it that this impact may have been\nat least partly responsible for the Gulf of Mexico!" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "The actual impact crater itself, however,\nis only about 180 kilometers in diameter." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "And scientists are certain that the Gulf\nof Mexico existed PRIOR to the impact." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 5.0 distance 3.0 longitude -89.5 latitude 21.3333}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 3.0 longitude -81.1833 latitude 46.6}
+wait {duration 5.0}
+print {text "Our planet has also been impacted\nby at least one COMET in the past." row -4 column 1 duration 8.0}
+wait {duration 10.0}
+gotolonglat {time 5.0 distance 1.5 longitude -81.1833 latitude 46.6}
+wait {duration 5.0}
+mark {object "Sol/Earth/Sudbury Crater" size 15 color [1 1 1] symbol "x"}
+print {text "This is the Sudbury Crater, in Canada!" row -4 column 1 duration 6.0}
+wait {duration 6.0}
+unmark {object "Sol/Earth/Sudbury Crater"}
+wait {duration 2.0}
+print {text "This feature is almost the same size as the crater in the\nGulf of Mexico. It was formed about 1.8 billion years ago." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "Scientists know that a comet impacted here after analyzing\nimpact-melt elements and running crater-simulation models." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 5.0 distance 3.0 longitude -81.1833 latitude 46.6}
+wait {duration 5.0}
+print {text "Let's have a look at the oldest and\nlargest impact area on Planet Earth." row -4 column 1 duration 8.0}
+wait {duration 10.0}
+timerate {rate 12000.0}
+gotolonglat {time 5.0 distance 3.0 longitude 26.64 latitude -26.98}
+wait {duration 5.0}
+timerate {rate 1.0}
+print {text "This is South Africa!" row -4 column 1 duration 6.0}
+wait {duration 8.0}
+gotolonglat {time 5.0 distance 1.5 longitude 26.64 latitude -26.98}
+wait {duration 5.0}
+mark {object "Sol/Earth/Vredefort Crater" size 15 color [1 1 1] symbol "x"}
+print {text "The Vredefort Crater is about 300 kilometers in\ndiameter and is approximately 2 billion years old." row -4 column 1 duration 10.0}
+wait {duration 10.0}
+unmark {object "Sol/Earth/Vredefort Crater"}
+wait {duration 3.0}
+print {text "Scientists now believe that a planet-wide extinction\nof life also occurred after THIS tremendous impact!" row -4 column 1 duration 12.0}
+wait {duration 14.0}
+print {text "It's believed that 70% to 80% of all the existing life on\nEarth was lost due to dramatic changes in the climate." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 5.0 distance 3.0 longitude 26.64 latitude -26.98}
+wait {duration 5.0}
+#
+#------------------------------------------------------------------
+# Examine some of the Earth's surface movements. 
+#------------------------------------------------------------------
+#
+print {text "As mentioned previously, the Earth's surface is also always\nin motion. We can see proof of this if we take a look around." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 3.0 distance 2.0 longitude 40.24 latitude -17.0} 
+wait {duration 3.0}
+print {text "One simple example of our planet's dynamic\nsurface activity/movement can be seen here. " row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "Note the similarities between the east coast\nof Africa and the west coast of Madagascar." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+mark {object "Sol/Earth/AE1" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/MW1" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/AE2" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/MW2" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/AE3" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/MW3" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/AE4" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/MW4" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/AE5" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/MW5" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+wait {duration 3.0}
+print {text "At some time in the past, Madagascar was\nfirmly attached to the continent of Africa!" row -4 column 1 duration 6.0}
+wait {duration 8.0}
+print {text "Let's look at a more dramatic example..." row -4 column 1 duration 6.0}
+wait {duration 8.0}
+gotolonglat {time 5.0 distance 3.0 longitude -22.5 latitude -15}
+wait {duration 5.0}
+print {text "Compare the eastern coast of South\nAmerica to the west coast of Africa!" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+mark {object "Sol/Earth/SA1" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW1" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA2" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW2" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA3" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW3" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA4" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW4" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA5" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW5" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA6" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW6" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA7" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW7" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA8" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW8" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA9" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW9" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA10" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW10" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+mark {object "Sol/Earth/SA11" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/AW11" size 8 color [1 1 1] symbol "x"}
+wait {duration 3.0}
+unmarkall {}
+wait {duration 3.0}
+print {text "There can be no doubt that the two continents were once\nconnected to each other at some point in the distant past!" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+#
+#--------------------------------------------------------------------
+# Look look at some more interesting features of the Earth's surface. 
+#--------------------------------------------------------------------
+#
+print {text "Let's look at some MORE interesting features..." row -4 column 1 duration 8.0}
+wait {duration 10.0}
+gotolonglat {time 5.0 distance 3.0 longitude 15.0 latitude 22.0}
+wait {duration 5.0}
+mark {object "Sol/Earth/Sahara Desert" size 25 color [0 0 0] symbol "x"}
+print {text "Here's the Sahara... This is the LARGEST and\nmost barren desert on the face of the Earth!" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+unmark {object "Sol/Earth/Sahara Desert"}
+gotolonglat {time 5.0 distance 2.0 longitude 15.0 latitude 22.0}
+wait {duration 5.0}
+print {text "The desert is larger than the combined\narea of ALL FIFTY of the United States!" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "Think about that..." row -4 column 1 duration 6.0}
+wait {duration 8.0}
+print {text "It staggers the imagination when you understand that\nthis ENTIRE area is basically nothing more than sand!" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 5.0 distance 3.0 longitude 15.0 latitude 22.0}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 3.0 longitude 82.5 latitude 39.5}
+wait {duration 5.0}
+mark {object "Sol/Earth/Taklimakan Desert" size 15 color [0 0 0] symbol "x"}
+print {text "The Taklimakan Desert - also known as the 'Sea of the\nDead' - is the SECOND largest desert on Planet Earth." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+unmark {object "Sol/Earth/Taklimakan Desert"}
+wait {duration 1.0}
+print {text "This is another awe-inspiring feature of Planet Earth.\nThe Taklimakan is located in the western half of China." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "To the south is another interesting area." row -4 column 1 duration 6.0}
+wait {duration 8.0}
+gotolonglat {time 5.0 distance 3.0 longitude 86.3 latitude 28.4}
+wait {duration 5.0}
+mark {object "Sol/Earth/Himalayas1" size 10 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/Himalayas2" size 10 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/Himalayas3" size 10 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/Himalayas4" size 10 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/Mount Everest" size 8 color [1 1 1] symbol "x"}
+mark {object "Sol/Earth/Himalayas5" size 8 color [1 1 1] symbol "x"}
+print {text "Some of the largest and tallest mountains in\nthe world can be found here in the Himalayas." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+unmarkall {}
+gotolonglat {time 5.0 distance 1.5 longitude 86.9 latitude 27.9}
+wait {duration 5.0}
+mark {object "Sol/Earth/Mount Everest" size 15 color [1 1 1] symbol "x"}
+print {text "Here is THE tallest mountain on our\nhome planet. This is Mount Everest." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+unmark {object "Sol/Earth/Mount Everest"}
+gotolonglat {time 5.0 distance 3.0 longitude 86.9 latitude 27.9}
+wait {duration 5.0}
+print {text "Note that the Himalayas are STILL being created as India\ncontinues its slow movement northward - and into - Asia." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "Each year the continent travels another half-inch or so\non its continuing - and inexorable - journey northward." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "It is hard to believe, but the combined impact of these\nmovements has created the Himalayan Mountain range!" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+#
+#------------------------------------------------------------------
+# Look at the Aurora Baurealis. 
+#------------------------------------------------------------------
+#
+print {text "Let's take a look at another of\nthe Earth's interesting features." row -4 column 1 duration 8.0}
+wait {duration 10.0}
+gotolonglat {time 5.0 distance 3.0 longitude 70.26 latitude -49.35}
+wait {duration 5.0}
+print {text "The bright circle of greenish light around Antarctica\nis a representation of the southern Aurora Borealis." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "This phenomenon is not completely understood, but it\ninvolves charged particles which emanate from the Sun." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "Charged electrons accelerate along Earth's magnetic field lines\ninto the atmosphere. Here they collide with gases, causing light." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 5.0 distance 3.0 longitude -21.92 latitude 64.14}
+wait {duration 5.0}
+print {text "The Northern Lights above the Arctic Continent\nhave also been created by the same processes." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+#
+#------------------------------------------------------------------
+# Let's explore the Moon.
+#------------------------------------------------------------------
+#
+renderflags {clear "markers"}
+gotolonglat {time 8.0 distance 5.0 longitude -99.15 latitude 19.4}
+wait {duration 8.0}
+print {text "Now, let's have a look at our Moon..." row -4 column 1 duration 6.0}
+wait {duration 8.0}
+select {object "Sol/Earth/Moon"}
+center {time 5.0}
+wait {duration 5.0}
+follow {}
+goto {time 8.0 distance 5.0}
+wait {duration 8.0}
+renderflags {set "cloudmaps"}
+print {text "First, let's view some of the relatively\nfamiliar features of the Lunar surface." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 5.0 distance 3.0 longitude 31.4 latitude 8.5}
+wait {duration 5.0}
+unmark {object "Sol/Earth/Moon"}
+renderflags {set "markers"}
+print {text "Here are some familiar features..." row -4 column 1 duration 6.0}
+wait {duration 8.0}
+gotolonglat {time 5.0 distance 2.0 longitude 31.4 latitude 8.5}
+wait {duration 5.0}
+mark {object "Sol/Earth/Moon/MARE TRANQUILLITATIS" size 15 color [1 1 1] symbol "x"}
+print {text "This is Mare Tranquillitatis, also\nknown as the 'Sea of Tranquility.'" row -4 column 1 duration 8.0}
+wait {duration 8.0}
+unmark {object "Sol/Earth/Moon/MARE TRANQUILLITATIS"}
+wait {duration 2.0}
+gotolonglat {time 5.0 distance 3.0 longitude 31.4 latitude 8.5}
+wait {duration 5.0}
+mark {object "Sol/Earth/Moon/MARE SERENITATIS" size 15 color [1 1 1] symbol "x"}
+print {text "Mare Serenitatis - the 'Sea of\nSerenity' - is to the northwest." row -4 column 1 duration 8.0}
+wait {duration 8.0}
+unmark {object "Sol/Earth/Moon/MARE SERENITATIS"}
+wait {duration 2.0}
+mark {object "Sol/Earth/Moon/MARE CRISIUM" size 15 color [1 1 1] symbol "x"}
+print {text "Mare Crisium - the 'Sea of\nCrisis' - is to the northeast." row -4 column 1 duration 8.0}
+wait {duration 8.0}
+unmark {object "Sol/Earth/Moon/MARE CRISIUM"}
+wait {duration 2.0}
+mark {object "Sol/Earth/Moon/MARE FECUNDITATIS" size 15 color [1 1 1] symbol "x"}
+print {text "And Mare Fecunditatis - the 'Sea of\nFecundity' - lies to the southeast." row -4 column 1 duration 8.0}
+wait {duration 8.0}
+unmark {object "Sol/Earth/Moon/MARE FECUNDITATIS"}
+wait {duration 2.0}
+gotolonglat {time 5.0 distance 3.0 longitude -11.1 latitude -43.4}
+wait {duration 5.0}
+mark {object "Sol/Earth/Moon/Tycho" size 15 color [0 0 0] symbol "x"}
+print {text "Here's one of the Moon's most prominent\nfeatures... This is the crater called 'Tycho.'" row -4 column 1 duration 10.0}
+mark {object "Sol/Earth/Moon/Tycho" size 15 color [0 0 0] symbol "x"}
+wait {duration 10.0}
+unmark {object "Sol/Earth/Moon/Tycho"}
+wait {duration 2.0}
+print {text "This is one of the brightest places on the Moon. It\nmakes you wonder what impacted here. Doesn't it?" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "To the south is another of the more\neasily recognizable Lunar features." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 5.0 distance 3.0 longitude -14.1 latitude -58.8}
+wait {duration 5.0}
+print {text "This is the Clavius crater." row -4 column 1 duration 6.0}
+mark {object "Sol/Earth/Moon/Clavius" size 15 color [0 0 0] symbol "x"}
+wait {duration 6.0}
+unmark {object "Sol/Earth/Moon/Clavius"}
+wait {duration 2.0}
+print {text "This is where we should have had a Lunar base by now if\nArthur C. Clarke had been in charge of space exploration!" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+#
+#------------------------------------------------------------------
+# View the Apollo Landing sites.
+#------------------------------------------------------------------
+#
+print {text "For now though, let's view some of the locations where\nhumans have left REAL artifacts on the Lunar surface." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 5.0 distance 3.0 longitude 23.473 latitude 0.674}
+wait {duration 5.0}
+print {text "The first 'Giant Leap For Mankind'\noccurred on the Sea of Tranquility." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+gotolonglat {time 5.0 distance 2.0 longitude 23.473 latitude 0.674}
+wait {duration 5.0}
+print {text "Neil Armstrong took his FIRST\nsmall step on the Moon here!" row -4 column 1 duration 10.0}
+mark {object "Sol/Earth/Moon/Apollo-11" size 10 color [1 1 1] symbol "x"}
+wait {duration 10.0}
+unmark {object "Sol/Earth/Moon/Apollo-11"}
+gotolonglat {time 5.0 distance 3.0 longitude 23.473 latitude 0.674}
+wait {duration 5.0}
+print {text "And the Apollo 11 Mission was, of course,\nfollowed by five other successful landings." row -4 column 1 duration 10.0}
+wait {duration 10.0}
+gotolonglat {time 5.0 distance 3.0 longitude -23.3 latitude -3.11}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 2.0 longitude -23.3 latitude -3.11}
+wait {duration 5.0}
+print {text "Apollo 12 made a precision touch-down less than\n600 feet away from the Surveyor III Lunar Lander." row -4 column 1 duration 12.0}
+mark {object "Sol/Earth/Moon/Apollo-12" size 10 color [1 1 1] symbol "x"}
+wait {duration 12.0}
+unmark {object "Sol/Earth/Moon/Apollo-12"}
+gotolonglat {time 5.0 distance 2.0 longitude -17.471 latitude -3.645}
+wait {duration 5.0}
+print {text "Alan Shepard chipped a golf ball on the Fra Mauro Highlands\nwhere Apollo 14 touched down. It travelled over 330 meters." row -4 column 1 duration 12.0}
+mark {object "Sol/Earth/Moon/Apollo-14" size 10 color [1 1 1] symbol "x"}
+wait {duration 12.0}
+unmark {object "Sol/Earth/Moon/Apollo-14"}
+gotolonglat {time 5.0 distance 3.0 longitude -17.471 latitude -3.645}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 3.0 longitude 3.7 latitude 26.1}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 2.0 longitude 3.7 latitude 26.1}
+wait {duration 5.0}
+print {text "Apollo 15 landed on the relatively smooth Hadley Delta. This\nis an even plain of basaltic lava just east of the Hadley Rille." row -4 column 1 duration 12.0}
+mark {object "Sol/Earth/Moon/Apollo-15" size 10 color [1 1 1] symbol "x"}
+wait {duration 12.0}
+unmark {object "Sol/Earth/Moon/Apollo-15"}
+gotolonglat {time 5.0 distance 3.0 longitude 3.7 latitude 26.1}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 3.0 longitude 15.499 latitude -8.973}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 2.0 longitude 15.499 latitude -8.973}
+wait {duration 5.0}
+print {text "The Apollo 16 spacecraft touched down in\nthe rockier Central Lunar Highlands area." row -4 column 1 duration 12.0}
+mark {object "Sol/Earth/Moon/Apollo-16" size 10 color [1 1 1] symbol "x"}
+wait {duration 12.0}
+unmark {object "Sol/Earth/Moon/Apollo-16"}
+gotolonglat {time 5.0 distance 3.0 longitude 15.499 latitude -8.973}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 3.0 longitude 30.775 latitude 20.188}
+wait {duration 5.0}
+gotolonglat {time 5.0 distance 2.0 longitude 30.775 latitude 20.188}
+wait {duration 5.0}
+print {text "The Apollo 17 lunar module landed in the\ndeep narrow valley called Taurus-Littrow." row -4 column 1 duration 12.0}
+mark {object "Sol/Earth/Moon/Apollo-17" size 10 color [1 1 1] symbol "x"}
+wait {duration 12.0}
+unmark {object "Sol/Earth/Moon/Apollo-17"}
+gotolonglat {time 5.0 distance 3.0 longitude 30.775 latitude 20.188}
+wait {duration 5.0}
+print {text "Let's take a final, tourist's view of\nthis grand - OLD - neighborhood..." row -4 column 1 duration 10.0}
+wait {duration 12.0}
+unmark {object "Sol/Earth/Space Station V"}
+unmark {object "Sol/Earth"}
+renderflags {clear "markers"}
+orbit {axis [0 1 0] rate 10 duration 8.0}
+gotolonglat {time 5.0 distance 5.5 longitude -157.4 latitude -4}
+wait {duration 5.0}
+#
+#------------------------------------------------------------------
+# End the tour in an appropriate manner...
+#------------------------------------------------------------------
+#
+wait {duration 4.0}
+select {object "Sol/Earth"}
+center {time 5.0}
+wait {duration 5.0}
+follow {}
+goto {time 8.0 distance 3.0}
+wait {duration 8.0}
+orbit {axis [0 1 0] rate 20 duration 8.0}
+select {object "Sol/Earth/Space Station V"}
+goto {time 4.0 distance 5.0}
+wait {duration 4.0}
+orbit {axis [0 1 0] rate 10 duration 2.5}
+print {text "Welcome back to Planet Earth!" row -4 column 1 duration 8.0}
+wait {duration 10.0}
+print {text "If only Arthur C. Clarke had been responsible, THIS\nwould now be our gateway back to the Home Planet!" row -4 column 1 duration 10.0}
+wait {duration 12.0}
+print {text "We hope you have enjoyed this tour..." row -4 column 1 duration 4.0}
+wait {duration 5.0}
+timerate {rate 1.0}
+print {text "The script is now finished.\nPress '!' to return to your current date and time..." row -4 column 1 duration 4.0}
+wait {duration 5.0}
+}
